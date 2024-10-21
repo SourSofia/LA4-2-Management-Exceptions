@@ -13,6 +13,22 @@ public class Manager extends Employee {
      */
     public void giveRaise(Employee e, double raise) {
 
+
+            if(raise < 0){
+                throw new IllegalArgumentException("Raise must be non-negative");
+            }
+
+            double s = e.getSalary();
+
+           if(e.getName().equals(this.getName())){
+                e.setSalary(raise + s);
+            }else{
+                e.setSalary(raise/2.0 + s);
+            }
+
+
+
+
     }
 
     @Override
