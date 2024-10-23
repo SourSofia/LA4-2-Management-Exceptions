@@ -11,25 +11,18 @@ public class Manager extends Employee {
      * @param raise the raise
      * @throws IllegalArgumentException when raise is negative
      */
-    public void giveRaise(Employee e, double raise) {
+    public void giveRaise(Employee e, double raise) throws IllegalArgumentException{
+        if(raise < 0) throw new IllegalArgumentException("Raise must be non-negative");
 
-
-            if(raise < 0){
-                throw new IllegalArgumentException("Raise must be non-negative");
-            }
-
-            double s = e.getSalary();
-
-           if(e.getName().equals(this.getName())){
-                e.setSalary(raise + s);
-            }else{
-                e.setSalary(raise/2.0 + s);
-            }
-
-
-
-
+        if(e.getName().equals(this.getName())){
+            e.setSalary(raise + e.getSalary());
+        }else{
+            e.setSalary(raise + e.getSalary());
+            this.setSalary(raise/2.0 + this.getSalary());
+        }
     }
+
+
 
     @Override
     public String toString() {
