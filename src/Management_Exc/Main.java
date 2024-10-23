@@ -18,14 +18,12 @@ public class Main {
     public static void giveRaise(List<Person> persons, String manager, String employee, double salary)  {
         for(Person p: persons) {
             if (manager.equals(p.getName())) {
-                if (!(p instanceof Manager)) {
-                    throw new ClassCastException(manager + " is not a manager");
-                }
+                if (!(p instanceof Manager)) throw new ClassCastException(manager + " is not a manager");
+
                 for(Person m: persons){
                     if (employee.equals(m.getName())){
-                        if (!(m instanceof Employee)) {
-                            throw new ClassCastException(employee + " is not an employee");
-                        }
+                        if (!(m instanceof Employee)) throw new ClassCastException(employee + " is not an employee");
+
                         ((Manager)p).giveRaise((Employee)m, salary);
                         return;
                     }
@@ -47,9 +45,8 @@ public class Main {
     public static void assignPM(List<Person> persons, String developer, String manager) {
         for(Person p: persons) {
             if (developer.equals(p.getName())) {
-                if (!(p instanceof Employee)) {
-                    throw new ClassCastException(developer + " is not a developer");
-                }
+                if (!(p instanceof Employee)) throw new ClassCastException(developer + " is not a developer");
+
                 for(Person m: persons){
                     if (manager.equals(m.getName())){
                         if (!(m instanceof Manager)) {
@@ -76,9 +73,8 @@ public class Main {
     public static String customerSpeak(List<Person> persons, String customer, String employee) {
         for(Person p: persons) {
             if (customer.equals(p.getName())) {
-                if (!(p instanceof Customer)) {
-                    throw new ClassCastException(customer + " is not a customer");
-                }
+                if (!(p instanceof Customer)) throw new ClassCastException(customer + " is not a customer");
+
                 for(Person m: persons){
                     if (employee.equals(m.getName())){
                         if (!(m instanceof Employee)) {
